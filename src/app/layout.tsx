@@ -17,8 +17,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <CursorTrail />
-      <body className={"bg-gray-200"}>{children}</body>
+      <body className={"bg-gray-200"}>
+        <CursorTrail />
+        {children}
+      </body>
     </html>
   );
 }

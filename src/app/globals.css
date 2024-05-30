@@ -35,6 +35,12 @@ body {
   animation: fadeIn 1s forwards;
 }
 
+.fade-in-bottom {
+  opacity: 0;
+  transform: translate(0, 200px);
+  animation: fadeIn 1s forwards;
+}
+
 @keyframes fadeIn {
   to {
     opacity: 1;
