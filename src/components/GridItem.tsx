@@ -32,7 +32,7 @@ export default function GridItem(
             {first && 
                 <div className="absolute hidden md:block left-[-24px] top-[24px] translate-x-1 group-hover:translate-x-[-5px] transition w-24 h-24 bg-gray-400 rounded-full z-0 border-double border-4 border-gray-50"></div>
             }
-            <div className="channel-border overflow-hidden flex relative rounded-3xl w-full h-full bg-gray-200 border border-zinc-400 hover:scale-[1.01]  transition-transform">
+            <div className="overflow-hidden flex relative rounded-3xl w-full h-full bg-gray-200 ring-1 hover:ring-4 ring-zinc-400 hover:ring-sky-400 hover:scale-[1.01]  transition-transform">
                 <div className="flex relative w-full ">
                     <Image
                         src={image_url}
