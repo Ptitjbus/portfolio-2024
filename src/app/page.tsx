@@ -1,5 +1,6 @@
 "use client";
 
+import ContactForm from "@/components/ContactForm";
 import MenuButtonLeft from "@/components/MenuButtonLeft";
 import MenuButtonRight from "@/components/MenuButtonRight";
 import MenuFooter from "@/components/MenuFooter";
@@ -23,7 +24,10 @@ export default function Home() {
           </>
         }
         {!showMenu &&
-          <MenuButtonLeft />
+          <>  
+            <ContactForm />
+            <MenuButtonLeft />
+          </>
         }
         <MenuButtonRight onEmailClick={(onEmailClick)} rotated={!showMenu} />
       </main>

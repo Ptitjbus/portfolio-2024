@@ -28,7 +28,7 @@ const LiveClock: React.FC = () => {
 
   if (!isClient) {
     // Render just a placeholder on the server
-    return new Date().toLocaleDateString(undefined, { hour: '2-digit', minute: '2-digit', hour12: false});
+    return '00:00'
   }
 
   return getFormattedTime(time);
