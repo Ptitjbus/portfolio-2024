@@ -183,8 +183,8 @@ export default function MenuGrid() {
             <Image
               src={clonedImageProps.src}
               alt=""
-              height={1000}
-              width={1000}
+              height={2000}
+              width={2000}
               className="object-cover"
               style={{ width: "100%", height: "100%" }}
             />
