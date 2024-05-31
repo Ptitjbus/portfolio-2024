@@ -42,10 +42,10 @@ export default function Project({ params }: { params: { projectId: string } }) {
           />
         </div>
         <div className="translate-in-bottom absolute bottom-0 left-0 flex items-center justify-center gap-10 w-full h-48 bg-gray-300 ">
-          <WiiButton text="Menu" className=" sm:min-w-64" link="/" />
+          <WiiButton text="Menu" className="min-w-40 sm:min-w-64" link="/" />
           <WiiButton
             text="Show more"
-            className="sm:min-w-64"
+            className="min-w-40 sm:min-w-64"
             link={`/project/${image.id}`}
           />
         </div>
