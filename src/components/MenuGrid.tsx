@@ -37,13 +37,13 @@ export default function MenuGrid() {
     const tl = gsap.timeline({
       onComplete: () => {
         setTimeout(() => {
-          router.push(`/project/${id}`);
+          router.push(`/preview/${id}`);
         }, 50);
       },
     });
 
     tl.to(backgroundRef.current, {
-      duration: 0.3,
+      duration: 0.6,
       ease: "power3.inOut",
       backgroundColor: "rgba(0, 0, 0, 1)",
     });
@@ -81,27 +81,8 @@ export default function MenuGrid() {
         },
       },
       "<",
-    ); // Start this animation at the same time as the background animation
+    );
   };
-
-  //   tl.to(clonedRect, {
-  //     top: 0,
-  //     left: 0,
-  //     width: "100vw",
-  //     height: "100vh",
-  //     duration: 0.7,
-  //     ease: "power3.inOut",
-  //     onUpdate() {
-  //       setClonedImageProps({
-  //         src: url,
-  //         top: clonedRect.top,
-  //         left: clonedRect.left,
-  //         width: clonedRect.width,
-  //         height: clonedRect.height,
-  //       });
-  //     },
-  //   });
-  // };
 
   return (
     <>
@@ -110,8 +91,7 @@ export default function MenuGrid() {
         <div className="hidden md:block absolute top-0 bottom-0 left-0 w-14 bg-gradient-to-l from-transparent to-gray-200 z-10" />
         <div className="fade-in-right grid grid-cols-2 lg:grid-cols-3 place-content-center xl:grid-cols-4 gap-4 p-2 px-4 md:p-8 md:px-14  max-w-7xl mx-auto ">
           <GridItem
-            image_url="https://www.mathis-viollet.fr/_next/image?url=https%3A%2F%2Fwyjsnkrgktfutfwyycwx.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fapplication%2Ffrogy%2Fflin%25201%2520big.webp&w=640&q=75"
-            link="/project/1"
+            image_url="https://wyjsnkrgktfutfwyycwx.supabase.co/storage/v1/object/public/application/frogy/f293406b49457d032e080e035f5d680d.webp"
             onClick={() =>
               handleImageClick(
                 1,
@@ -126,7 +106,6 @@ export default function MenuGrid() {
           <GridItem
             title="StarClean"
             image_url="https://www.mathis-viollet.fr/_next/image?url=https%3A%2F%2Fwyjsnkrgktfutfwyycwx.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fapplication%2Fstarclean%2Fcover_starclean_3b770cb2cb.webp&w=640&q=75"
-            link="/project/2"
             onClick={() =>
               handleImageClick(
                 2,
@@ -140,7 +119,6 @@ export default function MenuGrid() {
           <GridItem
             title="Fnac"
             image_url="https://www.mathis-viollet.fr/_next/image?url=https%3A%2F%2Fwyjsnkrgktfutfwyycwx.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fapplication%2Ffnac%2Fcover_fnac.webp&w=640&q=75"
-            link="/project/3"
             textsm="text-gray-600"
             onClick={() =>
               handleImageClick(

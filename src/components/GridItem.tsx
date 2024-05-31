@@ -5,7 +5,6 @@ import Image from "next/image";
 export default function GridItem({
   title,
   image_url,
-  link,
   first = false,
   textsm,
   onClick,
@@ -13,13 +12,12 @@ export default function GridItem({
 }: {
   title?: string;
   image_url?: string;
-  link?: string;
   first?: boolean;
   textsm?: string;
   onClick?: () => void;
   reference?: any;
 }) {
-  if (!image_url || !link) {
+  if (!image_url) {
     return <EmptyGridItem />;
   }
 
@@ -37,8 +35,8 @@ export default function GridItem({
             src={image_url}
             alt={title ?? "project image"}
             loading="lazy"
-            width={500}
-            height={500}
+            width={2000}
+            height={2000}
             className={`object-cover w-full pointer-events-none select-none ${first ? "" : "hover:scale-[1.05] transition-transform"}`}
             ref={reference}
           />

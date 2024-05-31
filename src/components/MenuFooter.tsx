@@ -3,12 +3,12 @@ import LiveClock from "./Clock";
 export default function MenuFooter() {
   return (
     <footer className="flex flex-col w-full fade-in-bottom backdrop-blur-sm bg-transparent">
-      <div className="flex h-16 justify-center">
-        <div className="w-full overflow-hidden bg-gray-300 h-full sm:h-[70px] " />
-        <div className="flex-shrink-0 w-[200px] bg-transparent">
-          <svg width="200" height="64">
+      <div className="flex h-20 justify-center">
+        <div className="w-full overflow-hidden bg-gray-300 h-full " />
+        <div className="flex-shrink-0 w-[200px] bg-transparent h-full">
+          <svg width="200" height="80">
             <path
-              d="M200 64C100 64 100.418 0.000135278 0 0V64H200Z"
+              d="M200 80C100 80 100.418 0.000135278 0 0V80H200Z"
               fill="rgb(209 213 219)"
             />
           </svg>
@@ -22,16 +22,16 @@ export default function MenuFooter() {
           </p>
         </div>
         <div className="flex-shrink-0 w-[200px] bg-transparent">
-          <svg width="200" height="64">
+          <svg width="200" height="80">
             <path
-              d="M0 64C100 64 99.5825 0.000135278 200 0V64H0Z"
+              d="M0 80C100 80 99.5825 0.000135278 200 0V80H0Z"
               fill="rgb(209 213 219)"
             />
           </svg>
         </div>
-        <div className="w-full overflow-hidden bg-gray-300 h-[50px] sm:h-[70px]" />
+        <div className="w-full overflow-hidden bg-gray-300 h-full" />
       </div>
-      <div className="flex items-center justify-center bg-gray-300 h-16 text-gray-400">
+      <div className="flex items-center justify-center bg-gray-300 h-20 text-gray-400">
         <p>© 2024 Portfolio. All rights reserved.</p>
       </div>
     </footer>
