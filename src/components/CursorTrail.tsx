@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from 'react';
-import { gsap } from 'gsap';
-import Image from 'next/image';
-import cursorTrail from '@/../public/img/cursortrail.png';
+import { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
+import Image from "next/image";
+import cursorTrail from "@/../public/img/cursortrail.png";
 
 const CursorTrail = () => {
   const trailRef = useRef<HTMLDivElement>(null);
@@ -30,10 +30,10 @@ const CursorTrail = () => {
       }
     };
 
-    document.addEventListener('mousemove', followMouse);
+    document.addEventListener("mousemove", followMouse);
 
     return () => {
-      document.removeEventListener('mousemove', followMouse);
+      document.removeEventListener("mousemove", followMouse);
     };
   }, [mounted]);
 
@@ -42,17 +42,12 @@ const CursorTrail = () => {
   return (
     <div
       ref={trailRef}
-      className="fixed top-0 left-0 w-[26px] h-[36px] pointer-events-none z-50 transform"
+      className="fixed top-0 left-0 w-[26px] h-[36px] pointer-events-none z-50 transform select-none"
       style={{
-        transform: "translate(-50%, -50%) !important", 
+        transform: "translate(-50%, -50%) !important",
       }}
     >
-      <Image
-        src={cursorTrail}
-        alt="Cursor Trail"
-        width={26}
-        height={36}
-      />
+      <Image src={cursorTrail} alt="Cursor Trail" width={26} height={36} />
     </div>
   );
 };

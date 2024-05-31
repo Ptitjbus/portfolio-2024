@@ -5,6 +5,9 @@ const nextConfig = {
           {
             hostname: 'www.mathis-viollet.fr',
           },
+          {
+            hostname: 'wyjsnkrgktfutfwyycwx.supabase.co',
+          },
         ],
       },
 };
