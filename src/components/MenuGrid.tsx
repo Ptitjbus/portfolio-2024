@@ -5,8 +5,21 @@ import { useRef, useState } from "react";
 import { gsap } from "gsap";
 import ReactDOM from "react-dom";
 import Image from "next/image";
+// @ts-ignore
+import hoverSound from "@/../public/sounds/hover.mp3";
+// @ts-ignore
+// eslint-disable-next-line import/no-extraneous-dependencies
+import useSound from "use-sound";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
 
 export default function MenuGrid() {
+  const isMuted = useSelector((state: RootState) => state.sound.isMuted);
+  const [launchHoverSound] = useSound(hoverSound, {
+    playbackRate: 3,
+    volume: 0.2,
+    soundEnabled: !isMuted,
+  });
   const router = useRouter();
   const backgroundRef = useRef<HTMLDivElement>(null);
   const imageRefs = useRef<(HTMLImageElement | null)[]>([]);
@@ -17,6 +30,10 @@ export default function MenuGrid() {
     width: number;
     height: number;
   } | null>(null);
+
+  const handleImageHover = () => {
+    launchHoverSound();
+  };
 
   const handleImageClick = (id: number, url: string) => {
     const image = imageRefs.current[id];
@@ -102,6 +119,7 @@ export default function MenuGrid() {
               (imageRefs.current[1] = el)
             }
             first
+            onMouseEnter={() => handleImageHover()}
           />
           <GridItem
             title="StarClean"
@@ -115,6 +133,7 @@ export default function MenuGrid() {
             reference={(el: HTMLImageElement | null) =>
               (imageRefs.current[2] = el)
             }
+            onMouseEnter={() => handleImageHover()}
           />
           <GridItem
             title="Fnac"
@@ -129,6 +148,7 @@ export default function MenuGrid() {
             reference={(el: HTMLImageElement | null) =>
               (imageRefs.current[3] = el)
             }
+            onMouseEnter={() => handleImageHover()}
           />
           <GridItem />
           <GridItem />
@@ -148,7 +168,7 @@ export default function MenuGrid() {
       {clonedImageProps &&
         ReactDOM.createPortal(
           <div
-            className="fixed overflow-hidden tvfilter"
+            className="fixed overflow-hidden tvfilter pointer-events-none"
             style={{
               position: "fixed",
               top: clonedImageProps.top,

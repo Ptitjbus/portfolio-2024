@@ -1,130 +1,131 @@
 {
   "env": {
-      "browser": true,
-      "es6": true
+    "browser": true,
+    "es6": true
   },
   "parserOptions": {
-      "ecmaFeatures": {
-          "jsx": true
-      },
-      "ecmaVersion": 2019,
-      "sourceType": "module"
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2019,
+    "sourceType": "module"
   },
   "globals": {
-      "Atomics": "readonly",
-      "SharedArrayBuffer": "readonly"
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
   },
-  "plugins": [
-      "import",
-      "promise",
-      "react",
-      "prettier",
-      "@typescript-eslint"
-  ],
+  "plugins": ["import", "promise", "react", "prettier", "@typescript-eslint"],
   "extends": [
-      "airbnb",
-      "prettier",
-      "eslint:recommended",
-      "plugin:@typescript-eslint/recommended",
-      "next/core-web-vitals",
-      "next",
-      "eslint-config-next"
+    "prettier",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "next/core-web-vitals",
+    "next",
+    "eslint-config-next"
   ],
   "rules": {
-      "import/no-unresolved": "off",
-      "jsx-a11y/no-static-element-interactions": "off",
-      "jsx-a11y/click-events-have-key-events": "off",
-      "jsx-a11y/control-has-associated-label": "off",
-      "@typescript-eslint/no-unused-vars": "error",
-      "import/no-anonymous-default-export": "off",
-      "react/display-name": "off",
-      "lodash/prefer-immutable-method": "off",
-      "lodash/prefer-lodash-method": "off",
-      "lodash/import-scope": "off",
-      "no-param-reassign": 0,
-      "no-plusplus": "off",
-      "import/order": "off",
-      "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
-      "camelcase": "off",
-      "no-non-null-assertion": "off",
-      "no-return-assign": "off",
-      "react/jsx-pascal-case": "off",
-      "promise/catch-or-return": ["error",{ "terminationMethod": ["catch", "asCallback", "finally"] }],
-      // "no-restricted-imports": ["error", {
-      //     "patterns": [".*"]
-      //   }],
-      "react/no-array-index-key": "off",
-      "import/prefer-default-export": "off",
-      "react/prop-types": "off",
-      "react/jsx-filename-extension": "off",
-      "react/jsx-props-no-spreading": "off",
-      "react/no-unused-prop-types": "off",
-      "react/react-in-jsx-scope": "off",
-      "react/require-default-props": "off",
-      "consistent-return": "off",
-      "@next/next/no-html-link-for-pages": ["error", "src/pages"],
-      "import/extensions": [
-            0,
-          "ignorePackages",
-          {
-              "ts": "never",
-              "tsx": "never",
-              "js": "never",
-              "jsx": "never"
-          }
-      ]
+    "import/no-unresolved": "off",
+    "@typescript-eslint/no-unused-vars": "error",
+    "import/no-anonymous-default-export": "off",
+    "react/display-name": "off",
+    "lodash/prefer-immutable-method": "off",
+    "lodash/prefer-lodash-method": "off",
+    "lodash/import-scope": "off",
+    "no-param-reassign": 0,
+    "no-plusplus": "off",
+    "import/order": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      },
+      {
+        "usePrettierrc": true
+      }
+    ],
+    "camelcase": "off",
+    "no-non-null-assertion": "off",
+    "no-return-assign": "off",
+    "react/jsx-pascal-case": "off",
+    "promise/catch-or-return": [
+      "error",
+      { "terminationMethod": ["catch", "asCallback", "finally"] }
+    ],
+    // "no-restricted-imports": ["error", {
+    //     "patterns": [".*"]
+    //   }],
+    "react/no-array-index-key": "off",
+    "import/prefer-default-export": "off",
+    "react/prop-types": "off",
+    "react/jsx-filename-extension": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/no-unused-prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/require-default-props": "off",
+    "consistent-return": "off",
+    "@next/next/no-html-link-for-pages": ["error", "src/pages"],
+    "import/extensions": [
+      0,
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never",
+        "js": "never",
+        "jsx": "never"
+      }
+    ]
   },
   "overrides": [
-      {
-          "files": "**/*.+(ts|tsx)",
-          "parser": "@typescript-eslint/parser",
-          "plugins": ["@typescript-eslint/eslint-plugin"],
-          "extends": ["plugin:@typescript-eslint/recommended", "prettier"],
-          "rules": {
-              "react/function-component-definition": "off",
-              "@typescript-eslint/explicit-function-return-type": "off",
-              "@typescript-eslint/ban-ts-comment": "off",
-              "@typescript-eslint/explicit-module-boundary-types": "off",
-              "@typescript-eslint/no-empty-function": "off",
-              "no-use-before-define": [0],
-              "@typescript-eslint/no-non-null-assertion": "off",
-              "@typescript-eslint/no-use-before-define": [1],
-              "@typescript-eslint/no-explicit-any": "off",
-              "@typescript-eslint/no-var-requires": "off",
-              "max-len": [
-                  "error",
-                  {
-                      "code": 120,
-                      "ignoreUrls": true
-                  }
-              ],
-              "react/jsx-first-prop-new-line": ["error", "multiline"],
-              "react/jsx-max-props-per-line": [
-                  "error",
-                  {
-                      "maximum": 1,
-                      "when": "multiline"
-                  }
-              ],
-              "@typescript-eslint/quotes": [
-                  "error",
-                  "double",
-                  {
-                      "avoidEscape": true,
-                      "allowTemplateLiterals": true
-                  }
-              ]
+    {
+      "files": "**/*.+(ts|tsx)",
+      "parser": "@typescript-eslint/parser",
+      "plugins": ["@typescript-eslint/eslint-plugin"],
+      "extends": ["plugin:@typescript-eslint/recommended", "prettier"],
+      "rules": {
+        "react/function-component-definition": "off",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/no-empty-function": "off",
+        "no-use-before-define": [0],
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/no-use-before-define": [1],
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-var-requires": "off",
+        "max-len": [
+          "error",
+          {
+            "code": 120,
+            "ignoreUrls": true
           }
+        ],
+        "react/jsx-first-prop-new-line": ["error", "multiline"],
+        "react/jsx-max-props-per-line": [
+          "error",
+          {
+            "maximum": 1,
+            "when": "multiline"
+          }
+        ],
+        "@typescript-eslint/quotes": [
+          "error",
+          "double",
+          {
+            "avoidEscape": true,
+            "allowTemplateLiterals": true
+          }
+        ]
       }
+    }
   ],
   "settings": {
-      "import/resolver": {
-          "typescript": {
-              "project": "."
-          }
-      },
-      "react": {
-          "version": "detect"
+    "import/resolver": {
+      "typescript": {
+        "project": "."
       }
+    },
+    "react": {
+      "version": "detect"
+    }
   }
 }

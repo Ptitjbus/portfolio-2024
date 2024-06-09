@@ -1,6 +1,14 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable max-len */
 import EmptyGridItem from "./EmptyGridItem";
 import Image from "next/image";
+// @ts-ignore
+import launchSound from "@/../public/sounds/launchgame.mp3";
+// @ts-ignore
+// eslint-disable-next-line import/no-extraneous-dependencies
+import useSound from "use-sound";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
 
 export default function GridItem({
   title,
@@ -9,22 +17,34 @@ export default function GridItem({
   textsm,
   onClick,
   reference,
+  onMouseEnter,
 }: {
   title?: string;
   image_url?: string;
   first?: boolean;
   textsm?: string;
   onClick?: () => void;
+  onMouseEnter?: () => void;
   reference?: any;
 }) {
   if (!image_url) {
     return <EmptyGridItem />;
   }
+  const isMuted = useSelector((state: RootState) => state.sound.isMuted);
+  const [launchGameSound] = useSound(launchSound, {
+    volume: 0.3,
+    soundEnabled: !isMuted,
+  });
 
   return (
     <div
       className="rounded-3xl flex relative w-36 h-24 sm:w-64 sm:h-36 group"
-      onClick={onClick}
+      onClick={() => {
+        launchGameSound();
+
+        if (onClick) onClick();
+      }}
+      onMouseEnter={onMouseEnter}
     >
       {first && (
         <div className="absolute hidden md:block left-[-24px] top-[24px] translate-x-1 group-hover:translate-x-[-5px] transition w-24 h-24 bg-gray-400 rounded-full z-0 border-double border-4 border-gray-50" />

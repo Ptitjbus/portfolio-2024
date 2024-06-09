@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import CursorTrail from "@/components/CursorTrail";
+import { Providers } from "@/components/Provider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,10 +15,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-gray-200">
-        <CursorTrail />
-        <div className="tvfilter">{children}</div>
-      </body>
+      <Providers>
+        <body className="bg-gray-200">
+          <CursorTrail />
+          <div className="tvfilter">{children}</div>
+        </body>
+      </Providers>
     </html>
   );
 }

@@ -1,5 +1,13 @@
+"use client";
 /* eslint-disable max-len */
 import Link from "next/link";
+// @ts-ignore
+import buttonSound from "@/../public/sounds/wii-button.mp3";
+// @ts-ignore
+// eslint-disable-next-line import/no-extraneous-dependencies
+import useSound from "use-sound";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
 
 export default function WiiButton({
   text,
@@ -12,11 +20,18 @@ export default function WiiButton({
   onClick?: () => void;
   link?: string;
 }) {
+  const isMuted = useSelector((state: RootState) => state.sound.isMuted);
+  const [clickSound] = useSound(buttonSound, {
+    volume: 0.5,
+    soundEnabled: !isMuted,
+  });
+
   if (link) {
     return (
       <Link
+        onClick={clickSound}
         href={link}
-        className={`transition-all rounded-full flex items-center justify-center bg-gray-50 hover:bg-gray-100shadow-md hover:shadow-lg focus:shadow-lg ring-4 ring-sky-400 outline-none w-28 h-14 sm:h-16 sm:w-44 ${className}`}
+        className={`transition-all hover:scale-105 rounded-full flex items-center justify-center bg-gray-50 hover:bg-gray-100shadow-md hover:shadow-lg focus:shadow-lg ring-4 ring-sky-400 outline-none w-28 h-14 sm:h-16 sm:w-44 ${className}`}
       >
         <p className="text-xl font-medium">{text}</p>
       </Link>
