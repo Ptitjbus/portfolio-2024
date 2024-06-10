@@ -27,10 +27,9 @@ export default function ContactForm() {
               className="transition-all p-2 mb-4 bg-zinc-200 rounded-lg resize-none ring-0 focus:ring-4 focus:ring-sky-400 outline-none"
             />
           </div>
-          <WiiButton
-            text="Send"
-            className="absolute -bottom-5 right-5 sm:-bottom-8 sm:-right-8"
-          />
+          <div className="absolute -bottom-5 right-5 sm:-bottom-8 sm:-right-8">
+            <WiiButton text="Send" />
+          </div>
         </form>
       </div>
     </div>
