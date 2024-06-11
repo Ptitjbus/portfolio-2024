@@ -1,13 +1,20 @@
+"use client";
+
 /* eslint-disable max-len */
 import { redirect } from "next/navigation";
 import Image from "next/image";
 import WiiButton from "@/components/WiiButton";
+import { useEffect, useState } from "react";
+// @ts-ignore
+// eslint-disable-next-line import/no-extraneous-dependencies
+import useSound from "use-sound";
 
 const projects = [
   {
     id: 1,
     src: "https://wyjsnkrgktfutfwyycwx.supabase.co/storage/v1/object/public/application/frogy/f293406b49457d032e080e035f5d680d.webp",
     title: "Frogy",
+    folder: "frogy",
     tags: [
       "ChatGPT API",
       "Python",
@@ -27,6 +34,7 @@ const projects = [
     id: 2,
     src: "https://www.mathis-viollet.fr/_next/image?url=https%3A%2F%2Fwyjsnkrgktfutfwyycwx.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fapplication%2Fstarclean%2Fcover_starclean_3b770cb2cb.webp&w=640&q=75",
     title: "Starclean",
+    folder: "starclean",
     tags: [
       "THREE.JS",
       "CESIUM",
@@ -43,6 +51,7 @@ const projects = [
     id: 3,
     src: "https://www.mathis-viollet.fr/_next/image?url=https%3A%2F%2Fwyjsnkrgktfutfwyycwx.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fapplication%2Ffnac%2Fcover_fnac.webp&w=640&q=75",
     title: "Fnac",
+    folder: "fnac",
     tags: [
       "HTML",
       "CSS",
@@ -59,6 +68,7 @@ const projects = [
 ];
 
 export default function Project({ params }: { params: { projectId: string } }) {
+  const [isLoaded, setIsLoaded] = useState(false);
   const project = projects.find(
     (img) => img.id === parseInt(params.projectId, 10),
   );
@@ -66,6 +76,27 @@ export default function Project({ params }: { params: { projectId: string } }) {
   if (!project) {
     redirect("/");
   }
+
+  const [launchMenuTheme, { stop: stopLaunchMenuTheme }] = useSound(
+    `/sounds/${project.folder}/backgroundMusic.mp3`,
+    {
+      volume: 0.5,
+      loop: true,
+      onload: () => {
+        setIsLoaded(true);
+      },
+    },
+  );
+
+  useEffect(() => {
+    if (isLoaded) {
+      launchMenuTheme();
+    }
+
+    return () => {
+      stopLaunchMenuTheme();
+    };
+  }, [isLoaded, launchMenuTheme, stopLaunchMenuTheme]);
 
   return (
     <main

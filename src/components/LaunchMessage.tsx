@@ -19,7 +19,7 @@ export default function LaunchMessage({
       >
         <div className="h-4 bg-gray-300 border border-b-gray-400"></div>
         <div className="h-full flex flex-col justify-between pb-8">
-          <div className="flex flex-col items-center justify-center gap-4 py-10 px-12 sm:px-28 text-2xl text-center text-pretty">
+          <div className="flex flex-col items-center justify-center gap-4 py-10 px-12 sm:px-28 text-2xl text-center text-pretty text-gray-600">
             <p className="">Welcome to my portfolio</p>
             <p className="">
               For a better experience, the website use sounds, if you want to

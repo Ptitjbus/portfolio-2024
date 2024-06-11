@@ -122,7 +122,6 @@ export default function MenuGrid() {
             onMouseEnter={() => handleImageHover()}
           />
           <GridItem
-            title="StarClean"
             image_url="https://www.mathis-viollet.fr/_next/image?url=https%3A%2F%2Fwyjsnkrgktfutfwyycwx.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fapplication%2Fstarclean%2Fcover_starclean_3b770cb2cb.webp&w=640&q=75"
             onClick={() =>
               handleImageClick(
@@ -136,7 +135,6 @@ export default function MenuGrid() {
             onMouseEnter={() => handleImageHover()}
           />
           <GridItem
-            title="Fnac"
             image_url="https://www.mathis-viollet.fr/_next/image?url=https%3A%2F%2Fwyjsnkrgktfutfwyycwx.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fapplication%2Ffnac%2Fcover_fnac.webp&w=640&q=75"
             textsm="text-gray-600"
             onClick={() =>
