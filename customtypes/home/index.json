@@ -1,0 +1,100 @@
+{
+  "format": "page",
+  "id": "home",
+  "label": "Home",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "popup_message": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Popup message",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "footer_text": {
+        "type": "Text",
+        "config": {
+          "label": "Footer text",
+          "placeholder": ""
+        }
+      },
+      "empty_card_text": {
+        "type": "Text",
+        "config": {
+          "label": "Empty card text",
+          "placeholder": ""
+        }
+      },
+      "cards": {
+        "type": "Group",
+        "config": {
+          "label": "Cards",
+          "repeat": true,
+          "fields": {
+            "game_id": {
+              "type": "Number",
+              "config": {
+                "label": "Game ID",
+                "placeholder": ""
+              }
+            },
+            "card_cover_image_link": {
+              "type": "Link",
+              "config": {
+                "label": "Card cover image link",
+                "placeholder": "",
+                "select": null
+              }
+            },
+            "card_game_image_link": {
+              "type": "Link",
+              "config": {
+                "label": "Card game image link",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {}
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_description": {
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        },
+        "type": "Text"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": {
+            "height": 1260,
+            "width": 2400
+          },
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      },
+      "meta_title": {
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        },
+        "type": "Text"
+      }
+    }
+  }
+}

@@ -13,7 +13,7 @@ import useSound from "use-sound";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 
-export default function MenuGrid() {
+export default function MenuGrid({ page }: { page: any }) {
   const isMuted = useSelector((state: RootState) => state.sound.isMuted);
   const [launchHoverSound] = useSound(hoverSound, {
     playbackRate: 3,
@@ -30,6 +30,7 @@ export default function MenuGrid() {
     width: number;
     height: number;
   } | null>(null);
+  const pageDataLength = page.data.cards.length;
 
   const handleImageHover = () => {
     launchHoverSound();
@@ -107,56 +108,25 @@ export default function MenuGrid() {
         <div className="hidden md:block absolute top-0 bottom-0 right-0 w-14 bg-gradient-to-r from-transparent to-gray-200 z-10" />
         <div className="hidden md:block absolute top-0 bottom-0 left-0 w-14 bg-gradient-to-l from-transparent to-gray-200 z-10" />
         <div className="fade-in-right grid grid-cols-2 lg:grid-cols-3 place-content-center xl:grid-cols-4 gap-4 p-2 px-4 md:p-8 md:px-14  max-w-7xl mx-auto ">
-          <GridItem
-            image_url="https://wyjsnkrgktfutfwyycwx.supabase.co/storage/v1/object/public/application/frogy/f293406b49457d032e080e035f5d680d.webp"
-            onClick={() =>
-              handleImageClick(
-                1,
-                "https://wyjsnkrgktfutfwyycwx.supabase.co/storage/v1/object/public/application/frogy/f293406b49457d032e080e035f5d680d.webp",
-              )
-            }
-            reference={(el: HTMLImageElement | null) =>
-              (imageRefs.current[1] = el)
-            }
-            first
-            onMouseEnter={() => handleImageHover()}
-          />
-          <GridItem
-            image_url="https://www.mathis-viollet.fr/_next/image?url=https%3A%2F%2Fwyjsnkrgktfutfwyycwx.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fapplication%2Fstarclean%2Fcover_starclean_3b770cb2cb.webp&w=640&q=75"
-            onClick={() =>
-              handleImageClick(
-                2,
-                "https://www.mathis-viollet.fr/_next/image?url=https%3A%2F%2Fwyjsnkrgktfutfwyycwx.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fapplication%2Fstarclean%2Fcover_starclean_3b770cb2cb.webp&w=640&q=75",
-              )
-            }
-            reference={(el: HTMLImageElement | null) =>
-              (imageRefs.current[2] = el)
-            }
-            onMouseEnter={() => handleImageHover()}
-          />
-          <GridItem
-            image_url="https://www.mathis-viollet.fr/_next/image?url=https%3A%2F%2Fwyjsnkrgktfutfwyycwx.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fapplication%2Ffnac%2Fcover_fnac.webp&w=640&q=75"
-            textsm="text-gray-600"
-            onClick={() =>
-              handleImageClick(
-                3,
-                "https://www.mathis-viollet.fr/_next/image?url=https%3A%2F%2Fwyjsnkrgktfutfwyycwx.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fapplication%2Ffnac%2Fcover_fnac.webp&w=640&q=75",
-              )
-            }
-            reference={(el: HTMLImageElement | null) =>
-              (imageRefs.current[3] = el)
-            }
-            onMouseEnter={() => handleImageHover()}
-          />
-          <GridItem />
-          <GridItem />
-          <GridItem />
-          <GridItem />
-          <GridItem />
-          <GridItem />
-          <GridItem />
-          <GridItem />
-          <GridItem />
+          {page.data.cards.map((item: any) => {
+            return (
+              <GridItem
+                key={item.game_id}
+                image_url={item.card_game_image_link.url}
+                onClick={() =>
+                  handleImageClick(item.game_id, item.card_cover_image_link.url)
+                }
+                reference={(el: HTMLImageElement | null) =>
+                  (imageRefs.current[item.game_id] = el)
+                }
+                onMouseEnter={() => handleImageHover()}
+              />
+            );
+          })}
+          {pageDataLength < 12 &&
+            Array(12 - pageDataLength)
+              .fill(0)
+              .map((_, index) => <GridItem key={index} />)}
         </div>
       </div>
       <div

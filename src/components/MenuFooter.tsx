@@ -1,6 +1,6 @@
 import LiveClock from "./Clock";
 
-export default function MenuFooter() {
+export default function MenuFooter({ page }: { page: any }) {
   return (
     <footer className="flex flex-col w-full fade-in-bottom backdrop-blur-sm bg-transparent">
       <div className="flex h-20 justify-center">
@@ -32,7 +32,7 @@ export default function MenuFooter() {
         <div className="w-full overflow-hidden bg-gray-300 h-full" />
       </div>
       <div className="flex items-center justify-center bg-gray-300 h-20 text-gray-400">
-        <p>© 2024 Portfolio. All rights reserved.</p>
+        <p>{page.data.footer_text}</p>
       </div>
     </footer>
   );
