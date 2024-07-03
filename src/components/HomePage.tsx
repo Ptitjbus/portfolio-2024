@@ -25,7 +25,7 @@ export default function HomePage({ page }: { page: any }) {
       )}
       {!showMenu && (
         <>
-          <ContactForm />
+          <ContactForm page={page} />
           <ContactMenuButtonLeft />
         </>
       )}

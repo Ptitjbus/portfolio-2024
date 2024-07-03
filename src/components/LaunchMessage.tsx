@@ -36,11 +36,11 @@ export default function LaunchMessage({ page }: { page: any }) {
         >
           <div className="h-4 bg-gray-300 border border-b-gray-400"></div>
           <div className="h-full flex flex-col justify-between pb-8">
-            <div className="flex flex-col items-center justify-center gap-4 py-10 px-12 sm:px-28 text-2xl text-center text-pretty text-gray-600">
+            <div className="flex flex-col items-center justify-center gap-4 py-10 px-12 text-xl text-center text-pretty text-gray-600">
               <PrismicRichText field={page.data.popup_message} />
             </div>
             <div className="flex justify-center items-center p-8 gap-10">
-              <WiiButton text="Mute sound" onClick={handleMuteClick} />
+              <WiiButton text="Couper le son" onClick={handleMuteClick} />
               <WiiButton text="OK" onClick={handleOkClick} />
             </div>
           </div>

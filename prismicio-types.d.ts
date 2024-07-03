@@ -206,6 +206,17 @@ interface HomeDocumentData {
   popup_message: prismic.RichTextField;
 
   /**
+   * Contact page text field in *Home*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.contact_page_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  contact_page_text: prismic.RichTextField;
+
+  /**
    * Footer text field in *Home*
    *
    * - **Field Type**: Text

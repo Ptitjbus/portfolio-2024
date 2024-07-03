@@ -133,7 +133,7 @@ export default async function Project({
       </div>
       <div className="fixed transition-all bottom-10 left-10 lg:left-20 z-10 hover:opacity-100">
         <WiiButton
-          text="Back"
+          text="Retour"
           className="min-w-44 md:min-w-64"
           link={`/preview/${page.uid}`}
         />

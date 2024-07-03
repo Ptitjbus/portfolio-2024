@@ -6,6 +6,7 @@ import { PrismicRichText } from "@prismicio/react";
 import Link from "next/link";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import HandleStartSounds from "@/components/HandleStartSounds";
+import { Metadata } from "next";
 
 /* eslint-disable max-len */
 export default async function AboutPage() {
@@ -97,4 +98,14 @@ export default async function AboutPage() {
       <div className="w-full h-2 border-t-2 border-gray-300"></div>
     </main>
   );
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const client = createClient();
+  const page = await client.getSingle("about");
+
+  return {
+    title: page.data.meta_title,
+    description: page.data.meta_description,
+  };
 }
