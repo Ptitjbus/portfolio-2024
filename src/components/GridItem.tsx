@@ -50,14 +50,14 @@ export default function GridItem({
         <div className="absolute hidden md:block left-[-24px] top-[24px] translate-x-1 group-hover:translate-x-[-5px] transition w-24 h-24 bg-gray-400 rounded-full z-0 border-double border-4 border-gray-50" />
       )}
       <div className="overflow-hidden flex relative rounded-3xl w-full h-full bg-gray-200 ring-1 hover:ring-4 ring-zinc-400 hover:ring-sky-400 hover:scale-[1.01]  transition-transform">
-        <div className="flex relative w-full ">
+        <div className="flex relative w-full h-full">
           <Image
             src={image_url}
             alt={title ?? "project image"}
             loading="lazy"
             width={2000}
             height={2000}
-            className={`object-cover w-full pointer-events-none select-none ${first ? "" : "hover:scale-[1.05] transition-transform"}`}
+            className={`object-cover w-full h-full pointer-events-none select-none ${first ? "" : "hover:scale-[1.05] transition-transform"}`}
             ref={reference}
           />
           {title && (
