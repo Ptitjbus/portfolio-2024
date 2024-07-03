@@ -23,7 +23,7 @@ export default async function Project({ params }: { params: Params }) {
 
   return (
     <div>
-      <main className="h-screen fixed w-screen overflow-hidden flex flex-col">
+      <main className="h-svh fixed w-screen overflow-hidden flex flex-col">
         <div className="relative w-full h-full overflow-hidden">
           <HandleStartSounds
             sound={{

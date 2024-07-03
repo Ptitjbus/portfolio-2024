@@ -13,7 +13,7 @@ export default async function Home() {
 
   return (
     <div className="">
-      <main className="h-screen fixed w-screen overflow-hidden flex flex-col">
+      <main className="h-svh fixed w-screen overflow-hidden flex flex-col">
         <HandleClickSounds />
         <HandleStartSounds
           sound={{

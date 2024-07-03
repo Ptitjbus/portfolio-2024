@@ -30,7 +30,7 @@ export default function LaunchMessage({ page }: { page: any }) {
 
   return (
     showPopUp && (
-      <div className="fixed w-screen h-screen bg-gray-950/30 z-20">
+      <div className="fixed w-screen h-svh bg-gray-950/30 z-20">
         <div
           className={`absolute-center w-full sm:w-[600px] sm:h-[450px] flex flex-col overflow-clip bg-gray-100 rounded-3xl z-20 border border-gray-400`}
         >

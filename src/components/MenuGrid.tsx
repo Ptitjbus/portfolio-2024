@@ -132,7 +132,7 @@ export default function MenuGrid({ page }: { page: any }) {
       </div>
       <div
         ref={backgroundRef}
-        className="fixed w-screen h-screen top-0 left-0 z-30 pointer-events-none"
+        className="fixed w-screen h-svh top-0 left-0 z-30 pointer-events-none"
       />
       {clonedImageProps &&
         ReactDOM.createPortal(

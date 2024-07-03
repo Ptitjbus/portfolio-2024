@@ -83,7 +83,7 @@ export default async function Project({
   return (
     <main
       style={{ backgroundColor: page.data.background_color ?? "#ffffff" }}
-      className="transition-all h-screen fixed w-screen overflow-x-hidden flex flex-col xl:flex-row-reverse bg-gray-200"
+      className="transition-all h-svh fixed w-screen overflow-x-hidden flex flex-col xl:flex-row-reverse bg-gray-200"
     >
       <HandleStartSounds
         sound={{
