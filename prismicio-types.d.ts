@@ -291,6 +291,23 @@ export interface ProjectPageDocumentDataTagsItem {
     | "ANDROID STUDIO"
     | "FIREBASE"
     | "JETPACK COMPOSE"
+    | "NEXTJS"
+    | "NUXTJS"
+    | "GSAP"
+    | "I18N"
+    | "NETLIFY"
+    | "NETCODE"
+    | "VIVOX"
+    | "UNITY LOBBY"
+    | "SQLALCHEMY"
+    | "DOCKER"
+    | "KUBERNETES"
+    | "AZURE"
+    | "GITHUB ACTIONS"
+    | "ARGOCD"
+    | "SSR"
+    | "MUI"
+    | "USESWR"
   >;
 }
 

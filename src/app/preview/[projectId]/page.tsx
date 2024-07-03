@@ -77,7 +77,7 @@ export default async function Project({ params }: { params: Params }) {
             <WiiButton
               text="Show more"
               className="min-w-40 sm:min-w-64"
-              link={`/project/${page.uid}`}
+              link={Number(page.uid) !== 0 ? `/project/${page.uid}` : "/about"}
             />
           </div>
         </div>

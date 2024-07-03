@@ -100,7 +100,7 @@ export default async function Project({
         <h1 className="text-4xl font-bold uppercase pb-5">
           {page.data.project_name}
         </h1>
-        <div className="project-description text-lg md:text-xl xl:text-2xl font-normal">
+        <div className="project-description text-lg md:text-xl xl:text-2xl font-normal pb-16">
           <PrismicRichText field={page.data.description} />
         </div>
       </div>
