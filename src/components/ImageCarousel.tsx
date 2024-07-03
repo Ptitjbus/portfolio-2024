@@ -32,13 +32,13 @@ const ImageCarousel = ({
           clickable: true,
         }}
         modules={[Autoplay, Navigation, Pagination]}
-        className="max-w-[36rem] max-h-full"
+        className="sm:max-w-[36rem] max-h-full"
       >
         {images.map((item, index) => (
           <SwiperSlide key={index}>
             <PrismicNextImage
               field={item.project_image}
-              className="max-w-[36rem] max-h-[20rem] object-cover"
+              className="sm:max-w-[36rem] max-h-[20rem] object-cover"
             />
           </SwiperSlide>
         ))}

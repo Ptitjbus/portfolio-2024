@@ -83,7 +83,7 @@ export default async function Project({
   return (
     <main
       style={{ backgroundColor: page.data.background_color ?? "#ffffff" }}
-      className="transition-all h-screen fixed w-screen overflow-x-hidden flex flex-col lg:flex-row-reverse bg-gray-200"
+      className="transition-all h-screen fixed w-screen overflow-x-hidden flex flex-col xl:flex-row-reverse bg-gray-200"
     >
       <HandleStartSounds
         sound={{
@@ -104,7 +104,7 @@ export default async function Project({
           <PrismicRichText field={page.data.description} />
         </div>
       </div>
-      <div className="fade-in-left flex flex-col py-20 px-16 lg:px-24 xl:px-24 h-full basis-2/5">
+      <div className="fade-in-left flex flex-col gap-4 py-20 px-16 lg:px-24 xl:px-24 h-full basis-2/5">
         <ImageCarousel images={page.data.images} />
         <div
           className="flex flex-col gap-4 underline uppercase text-lg font-bold py-2 italic"

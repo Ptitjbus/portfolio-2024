@@ -75,7 +75,7 @@ export default async function Project({ params }: { params: Params }) {
           <div className="flex items-center justify-center gap-10 sm:w-96">
             <WiiButton text="Menu" className="min-w-40 sm:min-w-64" link="/" />
             <WiiButton
-              text="Show more"
+              text="Démarrer"
               className="min-w-40 sm:min-w-64"
               link={Number(page.uid) !== 0 ? `/project/${page.uid}` : "/about"}
             />

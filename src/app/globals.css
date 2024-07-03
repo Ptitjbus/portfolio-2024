@@ -8,6 +8,33 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+@font-face {
+  font-family: 'continuum_boldregular';
+  src: url('/fonts/contb-webfont.woff2') format('woff2'),
+       url('/fonts/contb-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'continuum_lightregular';
+  src: url('/fonts/contl-webfont.woff2') format('woff2'),
+       url('/fonts/contl-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'continuum_mediumregular';
+  src: url('/fonts/contm-webfont.woff2') format('woff2'),
+       url('/fonts/contm-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
 * {
   cursor: url('/img/cursor.png'), auto !important;
 }
@@ -56,6 +83,18 @@ body {
   opacity: 1;
   transform: translate(0);
   animation: fadeOut 1s forwards;
+}
+
+.wiifont-bold {
+  font-family: 'continuum_boldregular';
+}
+
+.wiifont-light {
+  font-family: 'continuum_lightregular';
+}
+
+.wiifont-medium {
+  font-family: 'continuum_mediumregular';
 }
 
 @keyframes fadeInTranslate {
