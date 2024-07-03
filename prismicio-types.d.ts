@@ -19,24 +19,24 @@ export interface HomeDocumentDataCardsItem {
   game_id: prismic.NumberField;
 
   /**
-   * Card cover image link field in *Home → Cards*
+   * Card banner image field in *Home → Cards*
    *
-   * - **Field Type**: Link
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: home.cards[].card_cover_image_link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   * - **API ID Path**: home.cards[].card_banner_image
+   * - **Documentation**: https://prismic.io/docs/field#image
    */
-  card_cover_image_link: prismic.LinkField;
+  card_banner_image: prismic.ImageField<never>;
 
   /**
-   * Card game image link field in *Home → Cards*
+   * Card preview image field in *Home → Cards*
    *
-   * - **Field Type**: Link
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: home.cards[].card_game_image_link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   * - **API ID Path**: home.cards[].card_preview_image
+   * - **Documentation**: https://prismic.io/docs/field#image
    */
-  card_game_image_link: prismic.LinkField;
+  card_preview_image: prismic.ImageField<never>;
 }
 
 type HomeDocumentDataSlicesSlice = never;
@@ -144,7 +144,356 @@ interface HomeDocumentData {
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
-export type AllDocumentTypes = HomeDocument;
+type PreviewPageDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Preview page documents
+ */
+interface PreviewPageDocumentData {
+  /**
+   * Sound folder name field in *Preview page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: preview_page.sound_folder_name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sound_folder_name: prismic.KeyTextField;
+
+  /**
+   * Preview image field in *Preview page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: preview_page.preview_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  preview_image: prismic.ImageField<never>;
+
+  /**
+   * Slice Zone field in *Preview page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: preview_page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<PreviewPageDocumentDataSlicesSlice> /**
+   * Meta Description field in *Preview page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: preview_page.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Preview page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: preview_page.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Preview page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: preview_page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Preview page document from Prismic
+ *
+ * - **API ID**: `preview_page`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PreviewPageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<PreviewPageDocumentData>,
+    "preview_page",
+    Lang
+  >;
+
+/**
+ * Item in *Project page → Images*
+ */
+export interface ProjectPageDocumentDataImagesItem {
+  /**
+   * Project image field in *Project page → Images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_page.images[].project_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  project_image: prismic.ImageField<never>;
+}
+
+/**
+ * Item in *Project page → Tags*
+ */
+export interface ProjectPageDocumentDataTagsItem {
+  /**
+   * Project tag field in *Project page → Tags*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Select a project tag
+   * - **API ID Path**: project_page.tags[].project_tag
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  project_tag: prismic.SelectField<
+    | "HTML"
+    | "CSS"
+    | "JAVASCRIPT"
+    | "REACT"
+    | "VUE"
+    | "SYMFONY"
+    | "LARAVEL"
+    | "UNITY"
+    | "NODE"
+    | "FASTAPI"
+    | "GITHUB"
+    | "SQL"
+    | "PHP"
+    | "THREE JS"
+    | "CESIUM"
+    | "FIGMA"
+    | "CHATGPT API"
+    | "PYTHON"
+    | "DART"
+    | "QML"
+    | "FLUTTER"
+    | "RASPBERRY"
+    | "WEBSOCKET"
+    | "POSTGRESQL"
+    | "C#"
+    | "BLENDER"
+    | "PRISMIC"
+    | "TYPESCRIPT"
+    | "KOTLIN"
+    | "ANDROID STUDIO"
+    | "FIREBASE"
+    | "JETPACK COMPOSE"
+  >;
+}
+
+/**
+ * Item in *Project page → Links group*
+ */
+export interface ProjectPageDocumentDataLinksGroupItem {
+  /**
+   * Link display text field in *Project page → Links group*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_page.links_group[].link_display_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  link_display_text: prismic.KeyTextField;
+
+  /**
+   * Link field in *Project page → Links group*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_page.links_group[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
+type ProjectPageDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Project page documents
+ */
+interface ProjectPageDocumentData {
+  /**
+   * Project name field in *Project page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_page.project_name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  project_name: prismic.KeyTextField;
+
+  /**
+   * Description field in *Project page*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_page.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Images field in *Project page*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_page.images[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  images: prismic.GroupField<Simplify<ProjectPageDocumentDataImagesItem>>;
+
+  /**
+   * Tags field in *Project page*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_page.tags[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  tags: prismic.GroupField<Simplify<ProjectPageDocumentDataTagsItem>>;
+
+  /**
+   * Project type field in *Project page*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Select a project type
+   * - **API ID Path**: project_page.project_type
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  project_type: prismic.SelectField<
+    | "Application mobile + Objet connecté"
+    | "Site web"
+    | "Application web "
+    | "Jeu vidéo"
+  >;
+
+  /**
+   * Sound folder name field in *Project page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_page.sound_folder_name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sound_folder_name: prismic.KeyTextField;
+
+  /**
+   * Background Color field in *Project page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_page.background_color
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  background_color: prismic.KeyTextField;
+
+  /**
+   * Main color field in *Project page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_page.main_color
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  main_color: prismic.KeyTextField;
+
+  /**
+   * Links group field in *Project page*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_page.links_group[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  links_group: prismic.GroupField<
+    Simplify<ProjectPageDocumentDataLinksGroupItem>
+  >;
+
+  /**
+   * Slice Zone field in *Project page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ProjectPageDocumentDataSlicesSlice> /**
+   * Meta Description field in *Project page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: project_page.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Project page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_page.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Project page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: project_page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Project page document from Prismic
+ *
+ * - **API ID**: `project_page`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ProjectPageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ProjectPageDocumentData>,
+    "project_page",
+    Lang
+  >;
+
+export type AllDocumentTypes =
+  | HomeDocument
+  | PreviewPageDocument
+  | ProjectPageDocument;
 
 declare module "@prismicio/client" {
   interface CreateClient {
@@ -160,6 +509,15 @@ declare module "@prismicio/client" {
       HomeDocumentData,
       HomeDocumentDataCardsItem,
       HomeDocumentDataSlicesSlice,
+      PreviewPageDocument,
+      PreviewPageDocumentData,
+      PreviewPageDocumentDataSlicesSlice,
+      ProjectPageDocument,
+      ProjectPageDocumentData,
+      ProjectPageDocumentDataImagesItem,
+      ProjectPageDocumentDataTagsItem,
+      ProjectPageDocumentDataLinksGroupItem,
+      ProjectPageDocumentDataSlicesSlice,
       AllDocumentTypes,
     };
   }

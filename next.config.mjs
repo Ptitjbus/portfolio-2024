@@ -6,7 +6,7 @@ const nextConfig = {
             hostname: 'www.mathis-viollet.fr',
           },
           {
-            hostname: 'wyjsnkrgktfutfwyycwx.supabase.co',
+            hostname: 'images.prismic.io',
           },
         ],
       },

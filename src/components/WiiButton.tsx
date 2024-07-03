@@ -22,7 +22,7 @@ export default function WiiButton({
 }) {
   const isMuted = useSelector((state: RootState) => state.sound.isMuted);
   const [clickSound] = useSound(buttonSound, {
-    volume: 0.5,
+    volume: 0.3,
     soundEnabled: !isMuted,
   });
 

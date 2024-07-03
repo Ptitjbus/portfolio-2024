@@ -128,6 +128,18 @@ body {
   pointer-events: none;
 }
 
+.swiper-button-next{
+  color: #f9fafb !important;
+}
+
+.swiper-button-prev{
+  color: #f9fafb !important;
+}
+
+.swiper-pagination-bullet{
+  background-color: #f9fafb !important;
+}
+
 @layer utilities {
     
   .absolute-center{
@@ -140,5 +152,17 @@ body {
 
   .absolute-1\/3-center{
       @apply absolute top-1/3 transform -translate-y-1/3    
+  }
+
+  .project-description ul {
+      @apply list-disc mb-5 ml-6
+  }
+
+  .project-description p {
+    @apply list-disc mb-4
+}
+
+  .project-description ul li {
+      @apply my-1
   }
 }

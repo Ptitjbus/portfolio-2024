@@ -32,7 +32,7 @@ export default function GridItem({
   }
   const isMuted = useSelector((state: RootState) => state.sound.isMuted);
   const [launchGameSound] = useSound(launchSound, {
-    volume: 0.3,
+    volume: 0.15,
     soundEnabled: !isMuted,
   });
 

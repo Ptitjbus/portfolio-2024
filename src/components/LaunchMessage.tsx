@@ -11,7 +11,6 @@ export default function LaunchMessage({ page }: { page: any }) {
   const [showPopUp, setShowPopUp] = useState(false);
   const dispatch = useDispatch();
 
-  console.log(page);
   useEffect(() => {
     const hasSeenPopup = sessionStorage.getItem("hasSeenPopup");
     if (!hasSeenPopup) {

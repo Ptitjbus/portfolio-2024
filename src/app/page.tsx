@@ -17,16 +17,16 @@ export default async function Home() {
         <HandleClickSounds />
         <HandleStartSounds
           sound={{
-            soundName: "wii-start",
+            soundPath: "wii-start.mp3",
             loop: false,
-            volume: 0.5,
+            volume: 0.2,
           }}
         />
         <HandleStartSounds
           sound={{
-            soundName: "wii-menu-theme",
+            soundPath: "wii-menu-theme.mp3",
             loop: true,
-            volume: 0.5,
+            volume: 0.2,
           }}
         />
         <LaunchMessage page={page} />

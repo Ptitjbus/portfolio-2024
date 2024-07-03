@@ -42,20 +42,20 @@
                 "placeholder": ""
               }
             },
-            "card_cover_image_link": {
-              "type": "Link",
+            "card_banner_image": {
+              "type": "Image",
               "config": {
-                "label": "Card cover image link",
-                "placeholder": "",
-                "select": null
+                "label": "Card banner image",
+                "constraint": {},
+                "thumbnails": []
               }
             },
-            "card_game_image_link": {
-              "type": "Link",
+            "card_preview_image": {
+              "type": "Image",
               "config": {
-                "label": "Card game image link",
-                "placeholder": "",
-                "select": null
+                "label": "Card preview image",
+                "constraint": {},
+                "thumbnails": []
               }
             }
           }

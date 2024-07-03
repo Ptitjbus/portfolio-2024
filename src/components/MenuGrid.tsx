@@ -17,7 +17,7 @@ export default function MenuGrid({ page }: { page: any }) {
   const isMuted = useSelector((state: RootState) => state.sound.isMuted);
   const [launchHoverSound] = useSound(hoverSound, {
     playbackRate: 3,
-    volume: 0.2,
+    volume: 0.15,
     soundEnabled: !isMuted,
   });
   const router = useRouter();
@@ -112,14 +112,15 @@ export default function MenuGrid({ page }: { page: any }) {
             return (
               <GridItem
                 key={item.game_id}
-                image_url={item.card_game_image_link.url}
+                image_url={item.card_banner_image.url}
                 onClick={() =>
-                  handleImageClick(item.game_id, item.card_cover_image_link.url)
+                  handleImageClick(item.game_id, item.card_preview_image.url)
                 }
                 reference={(el: HTMLImageElement | null) =>
                   (imageRefs.current[item.game_id] = el)
                 }
                 onMouseEnter={() => handleImageHover()}
+                first={item.game_id === 0}
               />
             );
           })}

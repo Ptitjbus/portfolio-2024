@@ -1,0 +1,192 @@
+{
+  "format": "page",
+  "id": "project_page",
+  "label": "Project page",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
+      "project_name": {
+        "type": "Text",
+        "config": {
+          "label": "Project name",
+          "placeholder": ""
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "images": {
+        "type": "Group",
+        "config": {
+          "label": "Images",
+          "repeat": true,
+          "fields": {
+            "project_image": {
+              "type": "Image",
+              "config": {
+                "label": "Project image",
+                "constraint": {},
+                "thumbnails": []
+              }
+            }
+          }
+        }
+      },
+      "tags": {
+        "type": "Group",
+        "config": {
+          "label": "Tags",
+          "repeat": true,
+          "fields": {
+            "project_tag": {
+              "type": "Select",
+              "config": {
+                "label": "Project tag",
+                "placeholder": "Select a project tag",
+                "options": [
+                  "HTML",
+                  "CSS",
+                  "JAVASCRIPT",
+                  "REACT",
+                  "VUE",
+                  "SYMFONY",
+                  "LARAVEL",
+                  "UNITY",
+                  "NODE",
+                  "FASTAPI",
+                  "GITHUB",
+                  "SQL",
+                  "PHP",
+                  "THREE JS",
+                  "CESIUM",
+                  "FIGMA",
+                  "CHATGPT API",
+                  "PYTHON",
+                  "DART",
+                  "QML",
+                  "FLUTTER",
+                  "RASPBERRY",
+                  "WEBSOCKET",
+                  "POSTGRESQL",
+                  "C#",
+                  "BLENDER",
+                  "PRISMIC",
+                  "TYPESCRIPT",
+                  "KOTLIN",
+                  "ANDROID STUDIO",
+                  "FIREBASE",
+                  "JETPACK COMPOSE"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "project_type": {
+        "type": "Select",
+        "config": {
+          "label": "Project type",
+          "placeholder": "Select a project type",
+          "options": [
+            "Application mobile + Objet connecté",
+            "Site web",
+            "Application web ",
+            "Jeu vidéo"
+          ]
+        }
+      },
+      "sound_folder_name": {
+        "type": "Text",
+        "config": {
+          "label": "Sound folder name",
+          "placeholder": ""
+        }
+      },
+      "background_color": {
+        "type": "Text",
+        "config": {
+          "label": "Background Color",
+          "placeholder": ""
+        }
+      },
+      "main_color": {
+        "type": "Text",
+        "config": {
+          "label": "Main color",
+          "placeholder": ""
+        }
+      },
+      "links_group": {
+        "type": "Group",
+        "config": {
+          "label": "Links group",
+          "repeat": true,
+          "fields": {
+            "link_display_text": {
+              "type": "Text",
+              "config": {
+                "label": "Link display text",
+                "placeholder": ""
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {}
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_description": {
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        },
+        "type": "Text"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": {
+            "height": 1260,
+            "width": 2400
+          },
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      },
+      "meta_title": {
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        },
+        "type": "Text"
+      }
+    }
+  }
+}

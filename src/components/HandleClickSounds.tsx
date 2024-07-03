@@ -13,7 +13,7 @@ import { RootState } from "@/redux/store";
 export default function HandleClickSounds() {
   const isMuted = useSelector((state: RootState) => state.sound.isMuted);
   const [clickSound] = useSound(launchSound, {
-    volume: 0.5,
+    volume: 0.2,
     soundEnabled: !isMuted,
   });
 

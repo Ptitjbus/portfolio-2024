@@ -8,7 +8,7 @@ import useSound from "use-sound";
 
 // create a sound type
 type Sound = {
-  soundName: string;
+  soundPath: string;
   volume: number;
   loop: boolean;
 };
@@ -18,7 +18,7 @@ export default function HandleStartSounds({ sound }: { sound: Sound }) {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const [launchSound, { stop: stopSound }] = useSound(
-    `/sounds/${sound.soundName}.mp3`,
+    `/sounds/${sound.soundPath}`,
     {
       volume: sound.volume,
       loop: sound.loop,
