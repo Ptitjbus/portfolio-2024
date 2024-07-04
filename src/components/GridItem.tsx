@@ -55,8 +55,8 @@ export default function GridItem({
             src={image_url}
             alt={title ?? "project image"}
             loading="lazy"
-            width={2000}
-            height={2000}
+            width={768}
+            height={434}
             className={`object-cover w-full h-full pointer-events-none select-none ${first ? "" : "hover:scale-[1.05] transition-transform"}`}
             ref={reference}
           />
