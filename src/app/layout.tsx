@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import CursorTrail from "@/components/CursorTrail";
 import { Providers } from "@/components/Provider";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,6 +20,8 @@ export default function RootLayout({
       <Providers>
         <body className="bg-gray-200">
           <CursorTrail />
+          <Analytics />
+          <SpeedInsights />
           <div className="tvfilter">{children}</div>
         </body>
       </Providers>
