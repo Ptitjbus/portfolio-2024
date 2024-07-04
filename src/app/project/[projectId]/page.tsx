@@ -94,7 +94,7 @@ export default async function Project({
       />
       <div
         style={{ color: page.data.main_color ?? "#000000" }}
-        className="fade-in-right flex flex-col pt-20 px-16 xl:px-32 basis-3/5 text-gray-700"
+        className="fade-in-right flex flex-col pt-8 sm:pt-20 px-8 sm:px-16 xl:px-32 basis-3/5 text-gray-700"
       >
         <p className="text-xl font-light py-4">{page.data.project_type}</p>
         <h1 className="text-4xl font-bold uppercase pb-5">
@@ -104,7 +104,7 @@ export default async function Project({
           <PrismicRichText field={page.data.description} />
         </div>
       </div>
-      <div className="fade-in-left flex flex-col gap-4 py-20 px-16 lg:px-24 xl:px-24 h-full basis-2/5">
+      <div className="fade-in-left flex flex-col gap-4 py-20 px-8 sm:px-16 lg:px-24 xl:px-24 h-full basis-2/5">
         <ImageCarousel images={page.data.images} />
         <div
           className="flex flex-col gap-4 underline uppercase text-lg font-bold py-2 italic"
