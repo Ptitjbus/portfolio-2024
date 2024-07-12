@@ -6,8 +6,6 @@ import { gsap } from "gsap";
 import ReactDOM from "react-dom";
 import Image from "next/image";
 // @ts-ignore
-import hoverSound from "@/../public/sounds/hover.mp3";
-// @ts-ignore
 // eslint-disable-next-line import/no-extraneous-dependencies
 import useSound from "use-sound";
 import { useSelector } from "react-redux";
@@ -15,7 +13,7 @@ import { RootState } from "@/redux/store";
 
 export default function MenuGrid({ page }: { page: any }) {
   const isMuted = useSelector((state: RootState) => state.sound.isMuted);
-  const [launchHoverSound] = useSound(hoverSound, {
+  const [launchHoverSound] = useSound("/sounds/hover.aac", {
     playbackRate: 3,
     volume: 0.15,
     soundEnabled: !isMuted,

@@ -7,6 +7,8 @@ import Link from "next/link";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import HandleStartSounds from "@/components/HandleStartSounds";
 import { Metadata } from "next";
+import HandleKeyboardRedirect from "@/components/HandleKeyboardRedirect";
+import MuteButton from "@/components/MuteButton";
 
 /* eslint-disable max-len */
 export default async function AboutPage() {
@@ -15,6 +17,10 @@ export default async function AboutPage() {
 
   return (
     <main className="transition-all h-full fixed w-screen overflow-x-hidden bg-gray-200 flex flex-col py-12 gap-1">
+      <HandleKeyboardRedirect onExcapeUrl={`/preview/0`} />
+      <div className="fixed top-10 right-10">
+        <MuteButton />
+      </div>
       <HandleStartSounds
         sound={{
           soundPath: `about/backgroundMusic.mp3`,

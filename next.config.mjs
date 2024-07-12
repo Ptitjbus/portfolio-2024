@@ -12,10 +12,10 @@ const nextConfig = {
       },
       webpack(config, options) {
         config.module.rules.push({
-          test: /\.(ogg|mp3|wav|mpe?g)$/i,
+          test: /\.(ogg|mp3|wav|aac|mpe?g)$/i,
           use: [
             {
-              loader: 'url-loader',
+              loader: 'file-loader',
               options: {
                 name: '[name]-[hash].[ext]',
               },

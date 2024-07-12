@@ -8,6 +8,8 @@ import { notFound } from "next/navigation";
 
 import { createClient } from "@/prismicio";
 import { PrismicNextImage } from "@prismicio/next";
+import HandleKeyboardRedirect from "@/components/HandleKeyboardRedirect";
+import MuteButton from "@/components/MuteButton";
 
 type Params = { projectId: string };
 
@@ -21,9 +23,34 @@ export default async function Project({ params }: { params: Params }) {
 
   const allPages = await client.getByTag("preview_page");
 
+  let leftArrowUrl = "";
+  let rightArrowUrl = "";
+
+  //right
+  if (Number(page.uid) === 0) {
+    rightArrowUrl = `/preview/${Number(allPages.results_size - 1)}`;
+  } else if (Number(page.uid) - 1 > 0) {
+    rightArrowUrl = `/preview/${Number(page.uid) - 1}`;
+  }
+
+  //left
+  if (Number(page.uid) !== 0) {
+    if (Number(page.uid) + 1 < allPages.results_size) {
+      leftArrowUrl = `/preview/${Number(page.uid) + 1}`;
+    } else {
+      leftArrowUrl = `/preview/0`;
+    }
+  }
+
   return (
     <div>
-      <main className="h-svh fixed w-screen overflow-hidden flex flex-col">
+      <HandleKeyboardRedirect
+        onLeftArrowUrl={leftArrowUrl}
+        onRightArrowUrl={rightArrowUrl}
+        onExcapeUrl="/"
+        onEnterUrl={Number(page.uid) !== 0 ? `/project/${page.uid}` : "/about"}
+      />
+      <main className="h-svh fixed w-screen overflow-hidden flex flex-col bg-gray-300">
         <div className="relative w-full h-full overflow-hidden">
           <HandleStartSounds
             sound={{
@@ -34,12 +61,28 @@ export default async function Project({ params }: { params: Params }) {
           />
           <PrismicNextImage
             field={page.data.preview_image}
+            width={1920}
+            height={1080}
             className="w-full h-full object-cover pointer-events-none"
+            priority
           />
+        </div>
+        <div className="translate-in-bottom  bottom-0 left-0 flex items-center justify-center gap-10 w-full h-48 bg-gray-300 ">
+          <div className="flex items-center justify-center gap-10 sm:w-96">
+            <WiiButton text="Menu" className="min-w-40 sm:min-w-64" link="/" />
+            <WiiButton
+              text="Démarrer"
+              className="min-w-40 sm:min-w-64"
+              link={Number(page.uid) !== 0 ? `/project/${page.uid}` : "/about"}
+            />
+          </div>
+        </div>
+        <div className="fixed top-10 right-10">
+          <MuteButton />
         </div>
         {Number(page.uid) === 0 && (
           <>
-            <div className="absolute-1/3-center right-10">
+            <div className="absolute-preview-center right-10">
               <WiiArrow
                 direction="right"
                 link={`/preview/${Number(allPages.results_size - 1)}`}
@@ -50,19 +93,19 @@ export default async function Project({ params }: { params: Params }) {
         {Number(page.uid) !== 0 && (
           <>
             {Number(page.uid) + 1 < allPages.results_size ? (
-              <div className="absolute-1/3-center left-10">
+              <div className="absolute-preview-center left-10">
                 <WiiArrow
                   direction="left"
                   link={`/preview/${Number(page.uid) + 1}`}
                 />
               </div>
             ) : (
-              <div className="absolute-1/3-center left-10">
+              <div className="absolute-preview-center left-10">
                 <WiiArrow direction="left" link={`/preview/0`} />
               </div>
             )}
             {Number(page.uid) - 1 > 0 && (
-              <div className="absolute-1/3-center right-10">
+              <div className="absolute-preview-center right-10">
                 <WiiArrow
                   direction="right"
                   link={`/preview/${Number(page.uid) - 1}`}
@@ -71,16 +114,6 @@ export default async function Project({ params }: { params: Params }) {
             )}
           </>
         )}
-        <div className="translate-in-bottom absolute bottom-0 left-0 flex items-center justify-center gap-10 w-full h-48 bg-gray-300 ">
-          <div className="flex items-center justify-center gap-10 sm:w-96">
-            <WiiButton text="Menu" className="min-w-40 sm:min-w-64" link="/" />
-            <WiiButton
-              text="Démarrer"
-              className="min-w-40 sm:min-w-64"
-              link={Number(page.uid) !== 0 ? `/project/${page.uid}` : "/about"}
-            />
-          </div>
-        </div>
       </main>
     </div>
   );

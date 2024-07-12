@@ -47,7 +47,13 @@ const CursorTrail = () => {
         transform: "translate(-50%, -50%) !important",
       }}
     >
-      <Image src={cursorTrail} alt="Cursor Trail" width={26} height={36} />
+      <Image
+        src={cursorTrail}
+        alt="Cursor Trail"
+        width={26}
+        height={36}
+        priority
+      />
     </div>
   );
 };

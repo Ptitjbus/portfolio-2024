@@ -37,8 +37,11 @@ const ImageCarousel = ({
         {images.map((item, index) => (
           <SwiperSlide key={index}>
             <PrismicNextImage
+              priority={index === 0}
               field={item.project_image}
               className="sm:max-w-[36rem] max-h-[20rem] object-cover"
+              width={960}
+              height={540}
             />
           </SwiperSlide>
         ))}

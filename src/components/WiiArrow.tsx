@@ -2,8 +2,6 @@
 
 import Link from "next/link";
 // @ts-ignore
-import buttonSound from "@/../public/sounds/wii-button.mp3";
-// @ts-ignore
 // eslint-disable-next-line import/no-extraneous-dependencies
 import useSound from "use-sound";
 import { useSelector } from "react-redux";
@@ -17,7 +15,7 @@ export default function WiiArrow({
   link: string;
 }) {
   const isMuted = useSelector((state: RootState) => state.sound.isMuted);
-  const [clickSound] = useSound(buttonSound, {
+  const [clickSound] = useSound("/sounds/wii-button.aac", {
     volume: 0.3,
     soundEnabled: !isMuted,
   });

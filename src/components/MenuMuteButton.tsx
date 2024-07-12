@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleMute } from "@/redux/soundSlice";
 import { RootState } from "@/redux/store";
 
-export default function MenuButtonLeft() {
+export default function MenuMuteButton() {
   const dispatch = useDispatch();
   const isMuted = useSelector((state: RootState) => state.sound.isMuted);
 

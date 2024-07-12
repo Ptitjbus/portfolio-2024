@@ -30,20 +30,14 @@ export default function HandleStartSounds({ sound }: { sound: Sound }) {
   );
 
   useEffect(() => {
-    const handleMouseEvent = () => {
-      if (isLoaded) {
-        launchSound();
-        window.removeEventListener("mousemove", handleMouseEvent);
-      }
-    };
-
-    window.addEventListener("mousemove", handleMouseEvent);
+    if (isLoaded) {
+      launchSound();
+    }
 
     return () => {
       stopSound();
-      window.removeEventListener("mousemove", handleMouseEvent);
     };
-  }, [isLoaded, launchSound, stopSound]);
+  }, [isLoaded, launchSound, stopSound, isMuted]);
 
   return null;
 }

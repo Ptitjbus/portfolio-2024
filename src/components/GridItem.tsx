@@ -3,8 +3,6 @@
 import EmptyGridItem from "./EmptyGridItem";
 import Image from "next/image";
 // @ts-ignore
-import launchSound from "@/../public/sounds/launchgame.mp3";
-// @ts-ignore
 // eslint-disable-next-line import/no-extraneous-dependencies
 import useSound from "use-sound";
 import { useSelector } from "react-redux";
@@ -31,7 +29,7 @@ export default function GridItem({
     return <EmptyGridItem />;
   }
   const isMuted = useSelector((state: RootState) => state.sound.isMuted);
-  const [launchGameSound] = useSound(launchSound, {
+  const [launchGameSound] = useSound("sounds/launchgame.aac", {
     volume: 0.15,
     soundEnabled: !isMuted,
   });
