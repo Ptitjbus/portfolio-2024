@@ -106,14 +106,6 @@
             "maximum": 1,
             "when": "multiline"
           }
-        ],
-        "@typescript-eslint/quotes": [
-          "error",
-          "double",
-          {
-            "avoidEscape": true,
-            "allowTemplateLiterals": true
-          }
         ]
       }
     }

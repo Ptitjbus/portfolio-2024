@@ -27,7 +27,7 @@ export default function WiiButton({
   if (link) {
     return (
       <Link
-        onClick={clickSound}
+        onClick={() => clickSound()}
         href={link}
         className={`transition-all hover:scale-105 rounded-full flex items-center justify-center bg-gray-50 hover:bg-gray-100shadow-md hover:shadow-lg focus:shadow-lg ring-4 ring-sky-400 outline-none min-w-40 sm:min-w-64 h-14 sm:h-16 sm:w-full ${className ?? ""}`}
       >

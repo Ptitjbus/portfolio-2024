@@ -20,7 +20,7 @@ export default function WiiArrow({
     soundEnabled: !isMuted,
   });
   return (
-    <Link onClick={clickSound} href={link}>
+    <Link onClick={() => clickSound()} href={link}>
       <svg
         width="39"
         height="66"

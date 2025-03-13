@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://mathis-viollet.fr
+
+# Sitemaps
+Sitemap: https://mathis-viollet.fr/sitemap.xml

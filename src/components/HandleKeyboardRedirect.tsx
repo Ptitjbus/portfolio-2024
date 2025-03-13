@@ -45,7 +45,7 @@ export default function HandleKeyboardRedirect({
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [onEnterUrl, onExcapeUrl, onLeftArrowUrl, onRightArrowUrl, router]);
 
   return null;
 }
