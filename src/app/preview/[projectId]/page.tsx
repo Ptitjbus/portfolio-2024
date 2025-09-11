@@ -51,7 +51,7 @@ export default async function Project({ params }: { params: Params }) {
         onEnterUrl={Number(page.uid) !== 0 ? `/project/${page.uid}` : "/about"}
       />
       <main className="h-svh fixed w-screen overflow-hidden flex flex-col bg-gray-300">
-        <div className="relative w-full h-full overflow-hidden">
+        <div className="relative w-full h-full overflow-hidden ">
           <HandleStartSounds
             sound={{
               soundPath: `${page.data.sound_folder_name}/banner.mp3`,
@@ -59,12 +59,13 @@ export default async function Project({ params }: { params: Params }) {
               volume: 0.2,
             }}
           />
+          <div className="absolute-center w-full h-full bg-gray-600 animate-pulse z-0 pointer-events-none"></div>
           <PrismicNextImage
             field={page.data.preview_image}
             width={1920}
             height={1080}
-            className="w-full h-full object-cover pointer-events-none"
-            priority
+            className="w-full h-full object-cover pointer-events-auto z-2 absolute-center select-none"
+            priority={true}
           />
         </div>
         <div className="translate-in-bottom  bottom-0 left-0 flex items-center justify-center gap-10 w-full h-48 bg-gray-300 ">

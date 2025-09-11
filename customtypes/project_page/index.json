@@ -105,7 +105,10 @@
                   "ARGOCD",
                   "SSR",
                   "MUI",
-                  "USESWR"
+                  "USESWR",
+                  "CANNON-ES",
+                  "HOWLERJS",
+                  "GLSL"
                 ]
               }
             }

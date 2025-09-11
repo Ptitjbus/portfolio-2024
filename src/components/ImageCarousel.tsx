@@ -39,7 +39,7 @@ const ImageCarousel = ({
             <PrismicNextImage
               priority={index === 0}
               field={item.project_image}
-              className="sm:max-w-[36rem] max-h-[20rem] object-cover"
+              className="sm:max-w-[36rem] max-h-[20rem] object-cover select-none"
               width={960}
               height={540}
             />

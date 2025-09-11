@@ -78,8 +78,8 @@ export default function MenuGrid({ page }: { page: any }) {
       {
         top: 0,
         left: 0,
-        width: "100vw",
-        height: "100vh",
+        width: "100%",
+        height: "100%",
         duration: 0.8,
         ease: "power3.inOut",
         onUpdate() {
@@ -125,7 +125,7 @@ export default function MenuGrid({ page }: { page: any }) {
           {pageDataLength < 12 &&
             Array(12 - pageDataLength)
               .fill(0)
-              .map((_, index) => <GridItem key={index} />)}
+              .map((_, index) => <GridItem key={index} id={index} />)}
         </div>
       </div>
       <div
@@ -135,7 +135,7 @@ export default function MenuGrid({ page }: { page: any }) {
       {clonedImageProps &&
         ReactDOM.createPortal(
           <div
-            className="fixed overflow-hidden tvfilter pointer-events-none"
+            className="fixed overflow-hidden tvfilter pointer-events-none flex flex-col"
             style={{
               position: "fixed",
               top: clonedImageProps.top,
@@ -145,14 +145,18 @@ export default function MenuGrid({ page }: { page: any }) {
               zIndex: 9999,
             }}
           >
-            <Image
-              src={clonedImageProps.src}
-              alt=""
-              height={2304}
-              width={1302}
-              className="object-cover"
-              style={{ width: "100%", height: "100%" }}
-            />
+            <div className="h-full w-full overflow-hidden">
+              <Image
+                src={clonedImageProps.src}
+                alt=""
+                height={1080}
+                width={1920}
+                className="object-cover h-full w-full"
+              />
+            </div>
+            <div className="translate-in-bottom bottom-0 left-0 flex items-center justify-center gap-10 w-full h-48 bg-gray-300 ">
+              <div className="flex items-center justify-center gap-10 sm:w-96"></div>
+            </div>
           </div>,
           document.body,
         )}

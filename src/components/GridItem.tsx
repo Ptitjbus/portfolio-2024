@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 
 export default function GridItem({
+  id,
   title,
   image_url,
   first = false,
@@ -17,6 +18,7 @@ export default function GridItem({
   reference,
   onMouseEnter,
 }: {
+  id?: number;
   title?: string;
   image_url?: string;
   first?: boolean;
@@ -26,7 +28,7 @@ export default function GridItem({
   reference?: any;
 }) {
   if (!image_url) {
-    return <EmptyGridItem />;
+    return <EmptyGridItem id={id} />;
   }
   const isMuted = useSelector((state: RootState) => state.sound.isMuted);
   const [launchGameSound] = useSound("sounds/launchgame.aac", {
@@ -49,13 +51,15 @@ export default function GridItem({
       )}
       <div className="overflow-hidden flex relative rounded-3xl w-full h-full bg-gray-200 ring-1 hover:ring-4 ring-zinc-400 hover:ring-sky-400 hover:scale-[1.01]  transition-transform">
         <div className="flex relative w-full h-full">
+          <div className="absolute-center w-full h-full bg-gray-400 animate-pulse z-0 pointer-events-none"></div>
           <Image
             src={image_url}
             alt={title ?? "project image"}
-            loading="lazy"
+            loading="eager"
+            fetchPriority="high"
             width={384}
             height={217}
-            className={`object-cover w-full h-full pointer-events-none select-none ${first ? "" : "hover:scale-[1.05] transition-transform"}`}
+            className={`object-cover w-full h-full z-2 absolute-center pointer-events-none select-none ${first ? "" : "hover:scale-[1.05] transition-transform"}`}
             ref={reference}
           />
           {title && (

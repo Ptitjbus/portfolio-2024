@@ -63,7 +63,13 @@ interface AboutDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  cv_link: prismic.LinkField;
+  cv_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
 
   /**
    * Github link field in *About*
@@ -74,7 +80,13 @@ interface AboutDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  github_link: prismic.LinkField;
+  github_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
 
   /**
    * Linkedin link field in *About*
@@ -85,7 +97,13 @@ interface AboutDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  linkedin_link: prismic.LinkField;
+  linkedin_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
 
   /**
    * Background image field in *About*
@@ -468,6 +486,9 @@ export interface ProjectPageDocumentDataTagsItem {
     | "SSR"
     | "MUI"
     | "USESWR"
+    | "CANNON-ES"
+    | "HOWLERJS"
+    | "GLSL"
   >;
 }
 
@@ -493,7 +514,7 @@ export interface ProjectPageDocumentDataLinksGroupItem {
    * - **API ID Path**: project_page.links_group[].link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  link: prismic.LinkField;
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 }
 
 type ProjectPageDocumentDataSlicesSlice = never;
@@ -679,6 +700,17 @@ declare module "@prismicio/client" {
       repositoryNameOrEndpoint: string,
       options?: prismic.ClientConfig,
     ): prismic.Client<AllDocumentTypes>;
+  }
+
+  interface CreateWriteClient {
+    (
+      repositoryNameOrEndpoint: string,
+      options: prismic.WriteClientConfig,
+    ): prismic.WriteClient<AllDocumentTypes>;
+  }
+
+  interface CreateMigration {
+    (): prismic.Migration<AllDocumentTypes>;
   }
 
   namespace Content {
