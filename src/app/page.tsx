@@ -1,4 +1,3 @@
-import HandleClickSounds from "@/components/HandleClickSounds";
 import LaunchMessage from "@/components/LaunchMessage";
 import { Metadata } from "next";
 

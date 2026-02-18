@@ -37,7 +37,8 @@
     "prettier/prettier": [
       "error",
       {
-        "endOfLine": "auto"
+        "endOfLine": "auto",
+        "tabWidth": 4
       },
       {
         "usePrettierrc": true
@@ -51,9 +52,6 @@
       "error",
       { "terminationMethod": ["catch", "asCallback", "finally"] }
     ],
-    // "no-restricted-imports": ["error", {
-    //     "patterns": [".*"]
-    //   }],
     "react/no-array-index-key": "off",
     "import/prefer-default-export": "off",
     "react/prop-types": "off",
@@ -92,13 +90,7 @@
         "@typescript-eslint/no-use-before-define": [1],
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/no-var-requires": "off",
-        "max-len": [
-          "error",
-          {
-            "code": 120,
-            "ignoreUrls": true
-          }
-        ],
+        "max-len": "off",
         "react/jsx-first-prop-new-line": ["error", "multiline"],
         "react/jsx-max-props-per-line": [
           "error",
