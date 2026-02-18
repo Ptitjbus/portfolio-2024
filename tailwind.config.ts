@@ -8,19 +8,19 @@ const config: Config = {
   ],
   theme: {
     screens: {
-      'sm': '550px',
+      sm: "550px",
       // => @media (min-width: 640px) { ... }
 
-      'md': '700px',
+      md: "700px",
       // => @media (min-width: 768px) { ... }
-      
-      'lg': '1024px',
+
+      lg: "1024px",
       // => @media (min-width: 1024px) { ... }
 
-      'xl': '1280px',
+      xl: "1280px",
       // => @media (min-width: 1280px) { ... }
 
-      '2xl': '1536px',
+      "2xl": "1536px",
       // => @media (min-width: 1536px) { ... }
     },
     extend: {

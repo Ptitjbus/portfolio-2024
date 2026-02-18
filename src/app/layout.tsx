@@ -23,7 +23,7 @@ export default function RootLayout({
           <CursorTrail />
           <Analytics />
           <SpeedInsights />
-          <HandleClickSounds /> 
+          <HandleClickSounds />
           <div className="tvfilter">{children}</div>
         </body>
       </Providers>

@@ -22,7 +22,7 @@ export default function HandleClickSounds() {
     };
 
     document.addEventListener("click", handleDocumentClick);
-    
+
     return () => {
       document.removeEventListener("click", handleDocumentClick);
     };
