@@ -6,7 +6,7 @@ export default function EmptyGridItem({ id = 0 }: { id?: number }) {
         <p
           className={`m-auto text-lg sm:text-xl font-bold text-zinc-400 animate-pulse delay-[${50 * id}ms] select-none`}
         >
-          more soon {id}
+          more soon
         </p>
       </div>
     </div>

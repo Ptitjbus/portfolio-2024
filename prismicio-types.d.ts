@@ -63,13 +63,7 @@ interface AboutDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  cv_link: prismic.LinkField<
-    string,
-    string,
-    unknown,
-    prismic.FieldState,
-    never
-  >;
+  cv_link: prismic.LinkField;
 
   /**
    * Github link field in *About*
@@ -80,13 +74,7 @@ interface AboutDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  github_link: prismic.LinkField<
-    string,
-    string,
-    unknown,
-    prismic.FieldState,
-    never
-  >;
+  github_link: prismic.LinkField;
 
   /**
    * Linkedin link field in *About*
@@ -97,13 +85,7 @@ interface AboutDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  linkedin_link: prismic.LinkField<
-    string,
-    string,
-    unknown,
-    prismic.FieldState,
-    never
-  >;
+  linkedin_link: prismic.LinkField;
 
   /**
    * Background image field in *About*
@@ -514,7 +496,7 @@ export interface ProjectPageDocumentDataLinksGroupItem {
    * - **API ID Path**: project_page.links_group[].link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+  link: prismic.LinkField;
 }
 
 type ProjectPageDocumentDataSlicesSlice = never;
@@ -630,6 +612,17 @@ interface ProjectPageDocumentData {
   >;
 
   /**
+   * Background Image field in *Project page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_page.background_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+
+  /**
    * Slice Zone field in *Project page*
    *
    * - **Field Type**: Slice Zone
@@ -700,17 +693,6 @@ declare module "@prismicio/client" {
       repositoryNameOrEndpoint: string,
       options?: prismic.ClientConfig,
     ): prismic.Client<AllDocumentTypes>;
-  }
-
-  interface CreateWriteClient {
-    (
-      repositoryNameOrEndpoint: string,
-      options: prismic.WriteClientConfig,
-    ): prismic.WriteClient<AllDocumentTypes>;
-  }
-
-  interface CreateMigration {
-    (): prismic.Migration<AllDocumentTypes>;
   }
 
   namespace Content {
