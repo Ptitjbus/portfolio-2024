@@ -2,9 +2,9 @@ import { configureStore } from "@reduxjs/toolkit";
 import soundReducer from "./soundSlice";
 
 const store = configureStore({
-  reducer: {
-    sound: soundReducer,
-  },
+    reducer: {
+        sound: soundReducer,
+    },
 });
 
 export type RootState = ReturnType<typeof store.getState>;

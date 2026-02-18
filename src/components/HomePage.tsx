@@ -8,28 +8,28 @@ import { useState } from "react";
 import MenuMuteButton from "./MenuMuteButton";
 
 export default function HomePage({ page }: { page: any }) {
-  const [showMenu, setShowMenu] = useState(true);
+    const [showMenu, setShowMenu] = useState(true);
 
-  const onEmailClick = () => {
-    setShowMenu(!showMenu);
-  };
+    const onEmailClick = () => {
+        setShowMenu(!showMenu);
+    };
 
-  return (
-    <>
-      {showMenu && (
+    return (
         <>
-          <MenuGrid page={page} />
-          <MenuFooter page={page} />
-          <MenuMuteButton />
+            {showMenu && (
+                <>
+                    <MenuGrid page={page} />
+                    <MenuFooter page={page} />
+                    <MenuMuteButton />
+                </>
+            )}
+            {!showMenu && (
+                <>
+                    <ContactForm page={page} />
+                    <ContactMenuButtonLeft />
+                </>
+            )}
+            <MenuButtonRight onEmailClick={onEmailClick} rotated={!showMenu} />
         </>
-      )}
-      {!showMenu && (
-        <>
-          <ContactForm page={page} />
-          <ContactMenuButtonLeft />
-        </>
-      )}
-      <MenuButtonRight onEmailClick={onEmailClick} rotated={!showMenu} />
-    </>
-  );
+    );
 }

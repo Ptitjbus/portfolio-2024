@@ -9,68 +9,68 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 
 export default function GridItem({
-  id,
-  title,
-  image_url,
-  first = false,
-  textsm,
-  onClick,
-  reference,
-  onMouseEnter,
+    id,
+    title,
+    image_url,
+    first = false,
+    textsm,
+    onClick,
+    reference,
+    onMouseEnter,
 }: {
-  id?: number;
-  title?: string;
-  image_url?: string;
-  first?: boolean;
-  textsm?: string;
-  onClick?: () => void;
-  onMouseEnter?: () => void;
-  reference?: any;
+    id?: number;
+    title?: string;
+    image_url?: string;
+    first?: boolean;
+    textsm?: string;
+    onClick?: () => void;
+    onMouseEnter?: () => void;
+    reference?: any;
 }) {
-  if (!image_url) {
-    return <EmptyGridItem id={id} />;
-  }
-  const isMuted = useSelector((state: RootState) => state.sound.isMuted);
-  const [launchGameSound] = useSound("sounds/launchgame.aac", {
-    volume: 0.15,
-    soundEnabled: !isMuted,
-  });
+    if (!image_url) {
+        return <EmptyGridItem id={id} />;
+    }
+    const isMuted = useSelector((state: RootState) => state.sound.isMuted);
+    const [launchGameSound] = useSound("sounds/launchgame.aac", {
+        volume: 0.15,
+        soundEnabled: !isMuted,
+    });
 
-  return (
-    <div
-      className="rounded-3xl flex relative w-36 h-24 sm:w-64 sm:h-36 group"
-      onClick={() => {
-        launchGameSound();
+    return (
+        <div
+            className="rounded-3xl flex relative w-36 h-24 sm:w-64 sm:h-36 group"
+            onClick={() => {
+                launchGameSound();
 
-        if (onClick) onClick();
-      }}
-      onMouseEnter={onMouseEnter}
-    >
-      {first && (
-        <div className="absolute hidden md:block left-[-24px] top-[24px] translate-x-1 group-hover:translate-x-[-5px] transition w-24 h-24 bg-gray-400 rounded-full z-0 border-double border-4 border-gray-50" />
-      )}
-      <div className="overflow-hidden flex relative rounded-3xl w-full h-full bg-gray-200 ring-1 hover:ring-4 ring-zinc-400 hover:ring-sky-400 hover:scale-[1.01]  transition-transform">
-        <div className="flex relative w-full h-full">
-          <div className="absolute-center w-full h-full bg-gray-400 animate-pulse z-0 pointer-events-none"></div>
-          <Image
-            src={image_url}
-            alt={title ?? "project image"}
-            loading="eager"
-            fetchPriority="high"
-            width={384}
-            height={217}
-            className={`object-cover w-full h-full z-2 absolute-center pointer-events-none select-none ${first ? "" : "hover:scale-[1.05] transition-transform"}`}
-            ref={reference}
-          />
-          {title && (
-            <p
-              className={`absolute bottom-4 left-[22px] font-medium translate-y-6 group-hover:translate-y-0 z-10 text-gray-200 opacity-0 group-hover:opacity-100 transition pointer-events-none ${textsm}`}
-            >
-              {title}
-            </p>
-          )}
+                if (onClick) onClick();
+            }}
+            onMouseEnter={onMouseEnter}
+        >
+            {first && (
+                <div className="absolute hidden md:block left-[-24px] top-[24px] translate-x-1 group-hover:translate-x-[-5px] transition w-24 h-24 bg-gray-400 rounded-full z-0 border-double border-4 border-gray-50" />
+            )}
+            <div className="overflow-hidden flex relative rounded-3xl w-full h-full bg-gray-200 ring-1 hover:ring-4 ring-zinc-400 hover:ring-sky-400 hover:scale-[1.01]  transition-transform">
+                <div className="flex relative w-full h-full">
+                    <div className="absolute-center w-full h-full bg-gray-400 animate-pulse z-0 pointer-events-none"></div>
+                    <Image
+                        src={image_url}
+                        alt={title ?? "project image"}
+                        loading="eager"
+                        fetchPriority="high"
+                        width={384}
+                        height={217}
+                        className={`object-cover w-full h-full z-2 absolute-center pointer-events-none select-none ${first ? "" : "hover:scale-[1.05] transition-transform"}`}
+                        ref={reference}
+                    />
+                    {title && (
+                        <p
+                            className={`absolute bottom-4 left-[22px] font-medium translate-y-6 group-hover:translate-y-0 z-10 text-gray-200 opacity-0 group-hover:opacity-100 transition pointer-events-none ${textsm}`}
+                        >
+                            {title}
+                        </p>
+                    )}
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 }
