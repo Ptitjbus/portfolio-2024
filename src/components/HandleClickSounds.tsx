@@ -15,11 +15,18 @@ export default function HandleClickSounds() {
   });
 
   useEffect(() => {
-    document.addEventListener("click", () => clickSound());
-    // cleanup
-    return () => {
-      document.removeEventListener("click", () => clickSound());
+    const handleDocumentClick = () => {
+      if (!isMuted) {
+        clickSound();
+      }
     };
-  }, [clickSound]);
+
+    document.addEventListener("click", handleDocumentClick);
+    
+    return () => {
+      document.removeEventListener("click", handleDocumentClick);
+    };
+  }, [clickSound, isMuted]);
+
   return null;
 }

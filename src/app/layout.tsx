@@ -4,6 +4,7 @@ import CursorTrail from "@/components/CursorTrail";
 import { Providers } from "@/components/Provider";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import HandleClickSounds from "@/components/HandleClickSounds";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,6 +23,7 @@ export default function RootLayout({
           <CursorTrail />
           <Analytics />
           <SpeedInsights />
+          <HandleClickSounds /> 
           <div className="tvfilter">{children}</div>
         </body>
       </Providers>
