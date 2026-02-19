@@ -13,12 +13,15 @@ import MuteButton from "@/components/MuteButton";
 
 type Params = { projectId: string };
 
-export default async function Project({ params }: { params: Params }) {
-    // const image = images.find((img) => img.id === parseInt(params.projectId, 10));
-
+export default async function Project({
+    params,
+}: {
+    params: Promise<Params>;
+}) {
+    const { projectId } = await params;
     const client = createClient();
     const page = await client
-        .getByUID("preview_page", params.projectId)
+        .getByUID("preview_page", projectId)
         .catch(() => redirect("/"));
 
     const allPages = await client.getByTag("preview_page");
@@ -136,11 +139,12 @@ export default async function Project({ params }: { params: Params }) {
 export async function generateMetadata({
     params,
 }: {
-    params: Params;
+    params: Promise<Params>;
 }): Promise<Metadata> {
+    const { projectId } = await params;
     const client = createClient();
     const page = await client
-        .getByUID("preview_page", params.projectId)
+        .getByUID("preview_page", projectId)
         .catch(() => notFound());
 
     return {

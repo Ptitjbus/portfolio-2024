@@ -19,11 +19,12 @@ type Params = { projectId: string };
 export default async function Project({
     params,
 }: {
-    params: { projectId: string };
+    params: Promise<Params>;
 }) {
+    const { projectId } = await params;
     const client = createClient();
     const page = await client
-        .getByUID("project_page", params.projectId)
+        .getByUID("project_page", projectId)
         .catch(() => redirect("/"));
 
     return (
@@ -153,11 +154,12 @@ export default async function Project({
 export async function generateMetadata({
     params,
 }: {
-    params: Params;
+    params: Promise<Params>;
 }): Promise<Metadata> {
+    const { projectId } = await params;
     const client = createClient();
     const page = await client
-        .getByUID("project_page", params.projectId)
+        .getByUID("project_page", projectId)
         .catch(() => notFound());
 
     return {
